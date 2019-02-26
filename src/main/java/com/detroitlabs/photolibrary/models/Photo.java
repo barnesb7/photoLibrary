@@ -9,10 +9,15 @@ public class Photo {
     private LocalDate uploadDate;
     private ArrayList<String> tags;
 
-    public Photo(String name, LocalDate uploadDate, ArrayList<String> tags) {
+    public Photo(String name, LocalDate uploadDate, String tag) {
         this.name = name;
         this.uploadDate = uploadDate;
-        this.tags = tags;
+        this.tags = new ArrayList<>();
+        this.tags.add(tag);
+    }
+
+    public void addTag(String tagToAdd){
+        this.tags.add(tagToAdd);
     }
 
     public String getName() {
