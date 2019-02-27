@@ -33,6 +33,12 @@ public class PhotoLibrary {
         return photosContainingSearchedTag;
     }
 
+    public List<Photo> getPhotosInDateOrder(){
+        List<Photo> photosToSort = getPhotos();
+        Collections.sort(photosToSort);
+        return photosToSort;
+    }
+
     public List<Photo> getPhotosAlphabetically(){
 
         List<Photo> photosToSort = getPhotos();
