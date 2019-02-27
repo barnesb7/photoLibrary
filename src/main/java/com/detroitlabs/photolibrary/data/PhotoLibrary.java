@@ -3,7 +3,9 @@ package com.detroitlabs.photolibrary.data;
 import com.detroitlabs.photolibrary.models.Photo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class PhotoLibrary {
@@ -18,4 +20,24 @@ public class PhotoLibrary {
     public static List<Photo> getPhotos() {
         return PHOTOS;
     }
+
+    public List<Photo> searchByTag(String tagName){
+
+        List<Photo> photosContainingSearchedTag = new ArrayList<>();
+
+        for(Photo photo: PHOTOS){
+            if(photo.getTags().contains(tagName)){
+                photosContainingSearchedTag.add(photo);
+            }
+        }
+        return photosContainingSearchedTag;
+    }
+
+    public List<Photo> getPhotosAlphabetically(){
+
+        List<Photo> photosToSort = getPhotos();
+        Collections.sort(photosToSort);
+        return photosToSort;
+    }
+
 }

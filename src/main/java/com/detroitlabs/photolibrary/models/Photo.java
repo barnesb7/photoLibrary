@@ -3,7 +3,7 @@ package com.detroitlabs.photolibrary.models;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Photo {
+public class Photo implements Comparable<Photo> {
 
     private String name;
     private LocalDate uploadDate;
@@ -15,6 +15,12 @@ public class Photo {
         this.tags = new ArrayList<>();
         this.tags.add(tag);
     }
+
+    @Override
+    public int compareTo(Photo photo2){
+        return this.getName().compareTo(photo2.getName());
+    }
+
 
     public void addTag(String tagToAdd){
         this.tags.add(tagToAdd);
