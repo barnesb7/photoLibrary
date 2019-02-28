@@ -1,0 +1,30 @@
+
+
+.singleImageContainer {
+    display: inline-flex;
+}
+
+.singleImageContainer.p {
+    display: inline-flex;
+}
+
+.photosContainer {
+    height: 90%;
+    width: 100%;
+}
+
+h1 {
+    color: red;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}

@@ -1,6 +1,7 @@
 package com.detroitlabs.photolibrary.data;
 
 import com.detroitlabs.photolibrary.models.Photo;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,28 +9,36 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+@Component
 public class PhotoLibrary {
 
     private static final List<Photo> PHOTOS = Arrays.asList(
-            new Photo("first", LocalDate.of(2019, 2, 27), "firstTag" ),
-            new Photo("second", LocalDate.of(2019, 3, 27), "secondTag"),
-            new Photo("third", LocalDate.of(2019, 4, 28), "thirdTag"),
-            new Photo("fourth", LocalDate.of(2019, 5, 29), "fourthTag")
+            new Photo("overlook", LocalDate.of(2019, 2, 27), "scenic" ),
+            new Photo("presentmountain", LocalDate.of(2019, 3, 27), "hiking"),
+            new Photo("doublecpeak", LocalDate.of(2019, 4, 28), "peak"),
+            new Photo("cliff", LocalDate.of(2019, 5, 29), "scenic"),
+            new Photo("bridge", LocalDate.of(2019, 2, 27), "hiking" )
     );
 
     public static List<Photo> getPhotos() {
         return PHOTOS;
     }
 
+    public List<Photo> getAllPhotos(){
+        return PHOTOS;
+    }
+
+
     public List<Photo> searchByTag(String tagName){
 
         List<Photo> photosContainingSearchedTag = new ArrayList<>();
 
-        for(Photo photo: PHOTOS){
-            if(photo.getTags().contains(tagName)){
-                photosContainingSearchedTag.add(photo);
+        for(int i = 0; i < PHOTOS.size(); i++){
+            if(PHOTOS.get(i).getTags().contains(tagName)){
+                photosContainingSearchedTag.add(PHOTOS.get(i));
             }
         }
+
         return photosContainingSearchedTag;
     }
 
@@ -41,7 +50,8 @@ public class PhotoLibrary {
 
     public List<Photo> getPhotosAlphabetically(){
 
-        List<Photo> photosToSort = getPhotos();
+        List<Photo> photosToSort = new ArrayList<>();
+        photosToSort.addAll(PHOTOS);
         Collections.sort(photosToSort);
         return photosToSort;
     }

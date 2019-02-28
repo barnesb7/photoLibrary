@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+    <link rel="stylesheet" type ="text/css" th:href="@{/app.css}" />
+</head>
+<body>
+
+<nav>
+</nav>
+
+<div id="photosContainer">
+
+    <h1>hello</h1>
+    <div class="singleImageContainer" th:each="photo : ${allPhotos}">
+        <p th:text = "${photo.uploadDate}">photo date</p>
+        <img th:src="@{'/images/' + ${photo.name} + '.jpg'}" />
+    </div>
+
+</div>
+
+
+</body>
+</html>

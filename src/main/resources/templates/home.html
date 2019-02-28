@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" type ="text/css" th:href="@{/app.css}" />
 </head>
 <body>
-<h1>Hello From Home</h1>
+
+<nav>
+    <div class="col s12">
+        <form th:action="@{/search}" method="get">
+            <div class="input-field">
+                <input th:name="searchValue" type="search" placeholder="Search all gifs..." required="required" autocomplete="off"/>
+                <i class="material-icons">search</i>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<div id="photosContainer">
+
+<h1>hello</h1>
+    <div class="singleImageContainer" th:each="photo : ${allPhotos}">
+        <p th:text = "${photo.name}">photo name</p>
+        <img th:src="@{'/images/' + ${photo.name} + '.jpg'}" />
+    </div>
+
+</div>
+
+
 </body>
 </html>
