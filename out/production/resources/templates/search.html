@@ -9,9 +9,9 @@
 
 <nav>
     <div class="col s12">
-        <form th:action="@{/photosBySearch}" method="get">
+        <form th:action="@{/search}" method="get">
             <div class="input-field">
-                <input th:name="searchString" type="search" placeholder="Search tags" required="required" autocomplete="off"/>
+                <input th:name="searchValue" type="search" placeholder="Search tags" required="required" autocomplete="off"/>
                 <i class="material-icons">search</i>
             </div>
         </form>
@@ -24,9 +24,9 @@
 
 <div id="photosContainer">
 
-    <h1>hello</h1>
     <div class="singleImageContainer" th:each="photo : ${searchResults}">
         <p th:text = "${photo.name}">photo name</p>
+        <p th:text = "${photo.tags}">photo tags</p>
         <img th:src="@{'/images/' + ${photo.name} + '.jpg'}" />
     </div>
 
