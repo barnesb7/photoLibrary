@@ -1,20 +1,21 @@
 
-
-.singleImageContainer {
-    display: inline-flex;
-}
-
-.singleImageContainer.p {
-    display: inline-flex;
+nav {
+    width: 100%;
+    align-content: center;
 }
 
 .photosContainer {
-    height: 90%;
+    height: 100%;
     width: 100%;
 }
+.singleImageContainer {
+    width: 210px;
+    height: 300px;
+}
 
-h1 {
-    color: red;
+.imageDiv {
+    width: auto;
+    height: auto;
 }
 
 body{

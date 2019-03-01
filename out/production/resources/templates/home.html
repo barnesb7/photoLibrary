@@ -11,18 +11,21 @@
     <div class="col s12">
         <form th:action="@{/search}" method="get">
             <div class="input-field">
-                <input th:name="searchValue" type="search" placeholder="Search all gifs..." required="required" autocomplete="off"/>
+                <input th:name="searchValue" type="search" placeholder="Search tags" required="required" autocomplete="off"/>
                 <i class="material-icons">search</i>
             </div>
         </form>
     </div>
+
+    <a th:href="@{/alphabetically}">See Alphabetically</a>
+    <a th:href="@{/date}">See By Date</a>
 </nav>
 
 <div id="photosContainer">
 
-<h1>hello</h1>
     <div class="singleImageContainer" th:each="photo : ${allPhotos}">
-        <p th:text = "${photo.name}">photo name</p>
+        <strong><p th:text = "${photo.name}">photo name</p></strong>
+        <p th:text = "${photo.tags}">tags</p>
         <img th:src="@{'/images/' + ${photo.name} + '.jpg'}" />
     </div>
 

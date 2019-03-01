@@ -4,10 +4,7 @@ import com.detroitlabs.photolibrary.models.Photo;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class PhotoLibrary {
@@ -43,15 +40,21 @@ public class PhotoLibrary {
     }
 
     public List<Photo> getPhotosInDateOrder(){
-        List<Photo> photosToSort = getPhotos();
-        Collections.sort(photosToSort);
+        List<Photo> photosToSort = new ArrayList<>();
+        photosToSort.addAll(getPhotos());
+        Collections.sort(photosToSort, new Comparator<Photo>() {
+            @Override
+            public int compare(Photo photo1UploadDate, Photo photoTwoUploadDate) {
+                return photo1UploadDate.getUploadDate().compareTo(photoTwoUploadDate.getUploadDate());
+            }
+        });
         return photosToSort;
     }
 
     public List<Photo> getPhotosAlphabetically(){
 
         List<Photo> photosToSort = new ArrayList<>();
-        photosToSort.addAll(PHOTOS);
+        photosToSort.addAll(getPhotos());
         Collections.sort(photosToSort);
         return photosToSort;
     }

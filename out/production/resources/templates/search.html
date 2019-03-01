@@ -11,11 +11,15 @@
     <div class="col s12">
         <form th:action="@{/photosBySearch}" method="get">
             <div class="input-field">
-                <input th:name="searchString" type="search" placeholder="Search all gifs..." required="required" autocomplete="off"/>
+                <input th:name="searchString" type="search" placeholder="Search tags" required="required" autocomplete="off"/>
                 <i class="material-icons">search</i>
             </div>
         </form>
     </div>
+
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/alphabetically}">See Alphabetically</a>
+    <a th:href="@{/date}">See By Date</a>
 </nav>
 
 <div id="photosContainer">
